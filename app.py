@@ -51,6 +51,8 @@ class Student(UserMixin,db.Model):
     department = db.Column(db.String(100))
     payment = db.Column(db.String(10))
     status = db.Column(db.String(20))
+    
+
 
 @login_manager.user_loader
 def load_user(user_id):
