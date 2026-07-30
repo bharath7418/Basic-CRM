@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 import os
 from datetime import date, datetime
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'pro_secret_key_99'
@@ -16,6 +17,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
+
+migrate = Migrate(app, db)
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -40,7 +43,7 @@ class Message(db.Model):
     
 class Student(UserMixin,db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    register = db.Column(db.Integer)
+    register = db.Column(db.String(15))
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     number = db.Column(db.Integer)
