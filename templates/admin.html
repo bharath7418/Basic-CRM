@@ -30,7 +30,7 @@
                 <textarea name="description" class="form-control mb-3" placeholder="Details" required></textarea>
                 <input type="text" name="trainee_name" class="form-control mb-2" placeholder="Trainee Name" required />
                 <input type="number" name="members" class="form-control mb-2" placeholder="Number of Members" required />
-                <input type="text" name="feeback" class="form-control mb-2" placeholder="Feedback" required />
+                <input type="text" name="feedback" class="form-control mb-2" placeholder="Feedback" required />
 
                 <button class="btn btn-primary w-100">Publish Class</button>
               </form>
@@ -70,7 +70,7 @@
                       <td>
                         <span class="badge bg-secondary">{{ c.members or 0 }}</span>
                       </td>
-                      <td>{{ c.feeback or 'No feedback' }}</td>
+                      <td>{{ c.feedback or 'No feedback' }}</td>
                       <td>{{ c.created_at.strftime('%Y-%m-%d') if c.created_at else 'N/A' }}</td>
                       
                     </tr>

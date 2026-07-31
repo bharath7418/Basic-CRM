@@ -32,7 +32,7 @@ class Class(db.Model):
     description = db.Column(db.Text)
     trainee_name = db.Column(db.String(40))
     members = db.Column(db.Integer)
-    feeback = db.Column(db.String(100))
+    feedback = db.Column(db.String(100))
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
 class Message(db.Model):
@@ -47,7 +47,7 @@ class Student(UserMixin,db.Model):
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     number = db.Column(db.Integer)
-    collage = db.Column(db.String(100))
+    college = db.Column(db.String(100))
     academic_year = db.Column(db.String(30))
     intern_start_date = db.Column(db.String(30))
     degree = db.Column(db.String(100))
@@ -108,7 +108,7 @@ def add_class():
         description=request.form.get('description'),
         trainee_name=request.form.get('trainee_name'),
         members=request.form.get('members'),
-        feeback=request.form.get('feeback'),
+        feedback=request.form.get('feedback'),
         created_at=datetime.utcnow()
     ))
     db.session.commit()
@@ -124,7 +124,7 @@ def update_class(id):
         classes.description = request.form.get('description')
         classes.trainee_name = request.form.get('trainee_name')
         classes.members = request.form.get('members')
-        classes.feeback = request.form.get('feeback')
+        classes.feedback = request.form.get('feedback')
         classes.created_at = datetime.utcnow()
         db.session.commit()
         return redirect(url_for('admin_panel'))
@@ -138,7 +138,7 @@ def add_student():
             name=request.form.get('name'),
             email=request.form.get('email'),
             number=request.form.get('number'),
-            collage=request.form.get('collage'),
+            college=request.form.get('college'),
             academic_year=request.form.get('academic_year'),
             intern_start_date=request.form.get('intern_start_date'),
             degree=request.form.get('degree'),
